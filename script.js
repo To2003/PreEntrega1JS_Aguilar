@@ -1,6 +1,4 @@
-//let nombreUsuario = prompt ("Ingrese Su Nombre");
-//alert ("Bienvenido! " + nombreUsuario)
-let glUno = 0;
+let glUno = 0 ;
 let gvUno = 0;
 let glDos = 0;
 let gvDos = 0;
@@ -10,8 +8,17 @@ let ptsArgentina = 0;
 let ptsPolonia = 0;
 let ptsMexico = 0;
 
+function logIn() {
+    let nombreUsuario = prompt ("Ingrese Su Nombre");
+    let password = prompt ("Ingrese la Contraseña (1446)");
+    while (password != "1446") {
+        alert ("Error! Vuelva a intentarlo");
+        password = prompt ("Ingrese la Contraseña (1446)");
+    }
+    alert ("Bienvenido al sistema " + nombreUsuario);
+}
 
-//function start() {
+function start() {
 let localUno = prompt ("Goles de Argentina contra Arabia? Valores de 0 a 9");
 
 switch (localUno) {
@@ -282,12 +289,19 @@ switch (localUno) {
             alert ("Ganó Mexico!!");
         }
 
-        /*let tabla = alert("Puntos de Argentina: " + ptsArgentina +  "\n" + "Puntos de Arabia: " + ptsArabia + "\n" + "Puntos de Mexico: " + ptsMexico + "\n" + "Puntos de Polonia: " + ptsPolonia);*/
-        var posicion = [ptsArabia, ptsArgentina, ptsMexico, ptsPolonia];
+}
 
-        posicion.sort(function(a, b){return b - a});
+function position() {
+    var position = [ptsArabia, ptsArgentina, ptsMexico, ptsPolonia];
+    position.sort(function(a, b){return b - a});
+    alert (position);
+}
 
-        alert (posicion);
+logIn();
+start();
+position();
+
+
         /*
         tenes 
         let primero
@@ -301,4 +315,3 @@ switch (localUno) {
         cuarto < a todos*/
 
 
-//}
