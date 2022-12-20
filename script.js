@@ -1,317 +1,178 @@
-let glUno = 0 ;
-let gvUno = 0;
-let glDos = 0;
-let gvDos = 0;
-
 let ptsArabia = 0;
 let ptsArgentina = 0;
 let ptsPolonia = 0;
 let ptsMexico = 0;
+let primerLugar = 0;
 
-function logIn() {
-    let nombreUsuario = prompt ("Ingrese Su Nombre");
-    let password = prompt ("Ingrese la Contraseña (1446)");
-    while (password != "1446") {
-        alert ("Error! Vuelva a intentarlo");
-        password = prompt ("Ingrese la Contraseña (1446)");
-    }
-    alert ("Bienvenido al sistema " + nombreUsuario);
+const puntosArg = (puntosGanados) => {
+    return ptsArgentina + puntosGanados
+}
+const puntosAra = (puntosGanados) => {
+    return ptsArabia + puntosGanados
+}
+const puntosMex = (puntosGanados) => {
+    return ptsMexico + puntosGanados
+}
+const puntosPol = (puntosGanados) => {
+    return ptsPolonia + puntosGanados
+}
+// Log-in
+let nombreUsuario = prompt ("Ingrese Su Nombre por favor");
+let password = prompt ("Ingrese la Contraseña (1446)");
+while (password != "1446") {
+    alert ("Error! Vuelva a intentarlo");
+    password = prompt ("Ingrese la Contraseña (1446)");
+}
+alert ("Bienvenido " +nombreUsuario+" Al sistema de fixture qatar 2022!!");
+
+alert ("Juega conmigo: Vamos a calcular la posicion al finalizar la fase de grupos de cada seleccion eligiendo cuantos goles hace cada una de ellas!!!" + "\n" + "Empecemos!!"); 
+
+// Tabla de Posiciones
+
+function tablaPosiciones(){
+    alert("tabla de posiciones\nArgentina: "+ptsArgentina+"\nArabia saudita: "+ptsArabia+"\nMexico: "+ptsMexico+"\nPolonia: "+ptsPolonia);
 }
 
-function start() {
-let localUno = prompt ("Goles de Argentina contra Arabia? Valores de 0 a 9");
+//Argentina vs Arabia
 
-switch (localUno) {
-    case "0":
-        glUno = 0;
-        alert("El numero elegido fue " + glUno);
-        break;
+let localUno = parseInt(prompt ("Argentina vs Arabia Saudita. Goles de argentina: (solo coloque un numero)"));
+alert("Los goles elegidos fueron "+localUno);
 
-    case "1":
-        glUno = 1;
-        alert("El numero elegido fue " + glUno);
-        break;
+let visitaUno = parseInt(prompt("Argentina vs Arabia Saudita. Goles de Arabia Saudita: (Solo coloque un numero)"));
+alert("Los goles elegidos fueron "+visitaUno);
 
-    case "2":
-        glUno = 2;
-        alert("El numero elegido fue " + glUno);
-        break;
-
-    case "3":
-        glUno = 3;
-        alert("El numero elegido fue " + glUno);
-        break;
-
-    case "4":
-        glUno = 4;
-        alert("El numero elegido fue " + glUno);
-        break;
-
-    case "5":
-        glUno = 5;
-        alert("El numero elegido fue " + glUno);
-        break;
-
-    case "6":
-        glUno = 6;
-        alert("El numero elegido fue " + glUno);
-        break;
-
-    case "7":
-        glUno = 7;
-        alert("El numero elegido fue " + glUno);
-        break;
-
-    case "8":
-        glUno = 8;
-        alert("El numero elegido fue " + glUno);
-        break;
-
-    case "9":
-        glUno = 9;
-        alert("El numero elegido fue " + glUno);
-        break;
-
-    default:
-        alert ("El numero seleccionado no se encuentra dentro de los parametros");
-        localUno = prompt ("Goles de Argentina? Valores de 0 a 9");
-        break;
+    if(localUno>visitaUno){
+        alert("Ganador Argentina. Suma 3pts!.")
+        ptsArgentina =+ puntosArg(3);
+    } else if (localUno<visitaUno){
+        alert("Ganador Arabia. Suma 3pts!.")
+        ptsArabia =+ puntosAra(3);
+    } else if (localUno==visitaUno){
+        alert("Empate. Suma 1pt cada seleccion")
+        ptsArabia =+ puntosAra(1);
+        ptsArgentina =+ puntosArg(1);
+    } else{
+        alert("los numeros ingresados no fueron correctos")
     }
 
-    let visitaUno = prompt("Goles de Arabia contra Argentina? Valores de 0 a 9");
+tablaPosiciones()
 
-    switch (visitaUno) {
-        case "0":
-            gvUno = 0;
-            alert("El numero elegido fue " + gvUno);
-            break;
+// Polonia Vs Mexico
+
+let localDos = parseInt(prompt("Mexico vs Polonia. Goles de Mexico (Solo coloque un numero)"));
+alert("Los goles elegidos fueron "+localDos);
+
+let visitaDos = parseInt(prompt("Mexico vs Polonia. Goles de Polonia (Solo coloque un numero)"));
+alert("Los goles elegidos fueron "+visitaDos)
+
+    if(localDos>visitaDos){
+        alert("Ganador Mexico. Suma 3pts!.")
+        ptsMexico =+ puntosMex(3);
+    } else if (localDos<visitaDos){
+        alert("Ganador Polonia. Suma 3pts!.")
+        ptsPolonia =+ puntosPol(3);
+    } else if (localDos==visitaDos){
+        alert("Empate. Suma 1pt cada seleccion")
+        ptsMexico =+ puntosMex(1);
+        ptsPolonia =+ puntosPol(1);
+    } else{
+        alert("los numeros ingresados no fueron correctos")
+    }
+
+tablaPosiciones()
+
+// Argentina vs Mexico
+
+    let localTres = parseInt(prompt("Argentina vs Mexico. Goles de Argentina (Solo coloque un numero)"));
+    alert("Los goles elegidos fueron "+localTres);
     
-        case "1":
-            gvUno = 1;
-            alert("El numero elegido fue " + gvUno);
-            break;
+    let visitaTres = parseInt(prompt("Argentina vs Mexico. Goles de Mexico (Solo coloque un numero)"));
+    alert("Los goles elegidos fueron "+visitaTres)
     
-        case "2":
-            gvUno = 2;
-            alert("El numero elegido fue " + gvUno);
-            break;
-    
-        case "3":
-            gvUno = 3;
-            alert("El numero elegido fue " + gvUno);
-            break;
-    
-        case "4":
-            gvUno = 4;
-            alert("El numero elegido fue " + gvUno);
-            break;
-    
-        case "5":
-            gvUno = 5;
-            alert("El numero elegido fue " + gvUno);
-            break;
-    
-        case "6":
-            gvUno = 6;
-            alert("El numero elegido fue " + gvUno);
-            break;
-    
-        case "7":
-            gvUno = 7;
-            alert("El numero elegido fue " + gvUno);
-            break;
-    
-        case "8":
-            gvUno = 8;
-            alert("El numero elegido fue " + gvUno);
-            break;
-    
-        case "9":
-            gvUno = 9;
-            alert("El numero elegido fue " + gvUno);
-            break;
-    
-        default:
-            alert ("El numero seleccionado no se encuentra dentro de los parametros");
-            visitaUno = prompt("Goles de Arabia contra Argentina? Valores de 0 a 9");
-            break;
+        if(localTres>visitaTres){
+            alert("Ganador Argentina. Suma 3pts!.")
+            ptsArgentina =+ puntosArg(3);
+        } else if (localTres<visitaTres){
+            alert("Ganador Mexico. Suma 3pts!.")
+            ptsMexico =+ puntosMex(3);
+        } else if (localTres==visitaTres){
+            alert("Empate. Suma 1pt cada seleccion")
+            ptsArgentina =+ puntosArg(1);
+            ptsMexico =+ puntosMex(1);
+        } else{
+            alert("los numeros ingresados no fueron correctos")
         }
 
-    if (glUno < gvUno) {
-        ptsArabia =+ 3;
-        alert ("Ganó Arabia!!");
-    }
+tablaPosiciones()   
 
-    if (glUno === gvUno) {
-        ptsArabia =+ 1;
-        ptsArgentina =+ 1;
-        alert ("Empate!!");
-    }
-    
-    if (glUno > gvUno) {
-        ptsArgentina =+ 3;
-        alert ("Ganó Argentina!!");
-    }
+// Polonia vs Arabia
 
-    //Partido 2  Mexico Polonia
-
-    let localDos = prompt ("Goles de Mexico contra Polonia? Valores de 0 a 9");
-
-    switch (localDos) {
-        case "0":
-            glDos = 0;
-            alert("El numero elegido fue " + glDos);
-            break;
-    
-        case "1":
-            glDos = 1;
-            alert("El numero elegido fue " + glDos);
-            break;
-    
-        case "2":
-            glDos = 2;
-            alert("El numero elegido fue " + glDos);
-            break;
-    
-        case "3":
-            glDos = 3;
-            alert("El numero elegido fue " + glDos);
-            break;
-    
-        case "4":
-            glDos = 4;
-            alert("El numero elegido fue " + glDos);
-            break;
-    
-        case "5":
-            glDos = 5;
-            alert("El numero elegido fue " + glDos);
-            break;
-    
-        case "6":
-            glDos = 6;
-            alert("El numero elegido fue " + glDos);
-            break;
-    
-        case "7":
-            glDos = 7;
-            alert("El numero elegido fue " + glDos);
-            break;
-    
-        case "8":
-            glDos = 8;
-            alert("El numero elegido fue " + glDos);
-            break;
-    
-        case "9":
-            glDos = 9;
-            alert("El numero elegido fue " + glDos);
-            break;
-    
-        default:
-            alert ("El numero seleccionado no se encuentra dentro de los parametros");
-            localDos = prompt ("Goles de Mexico contra Polonia? Valores de 0 a 9");
-            break;
-        }
-    
-        let visitaDos = prompt("Goles de Polonia contra Mexico? Valores de 0 a 9");
-    
-        switch (visitaDos) {
-            case "0":
-                gvDos = 0;
-                alert("El numero elegido fue " + gvDos);
-                break;
+        let localCuatro = parseInt(prompt("Polonia vs Arabia Saudita. Goles de Polonia (Solo coloque un numero)"));
+        alert("Los goles elegidos fueron "+localCuatro);
         
-            case "1":
-                gvDos = 1;
-                alert("El numero elegido fue " + gvDos);
-                break;
+        let visitaCuatro = parseInt(prompt("Polonia vs Arabia Saudita. Goles de Arabia Saudita (Solo coloque un numero)"));
+        alert("Los goles elegidos fueron "+visitaCuatro);
         
-            case "2":
-                gvDos = 2;
-                alert("El numero elegido fue " + gvDos);
-                break;
-        
-            case "3":
-                gvDos = 3;
-                alert("El numero elegido fue " + gvDos);
-                break;
-        
-            case "4":
-                gvDos = 4;
-                alert("El numero elegido fue " + gvDos);
-                break;
-        
-            case "5":
-                gvDos = 5;
-                alert("El numero elegido fue " + gvDos);
-                break;
-        
-            case "6":
-                gvDos = 6;
-                alert("El numero elegido fue " + gvDos);
-                break;
-        
-            case "7":
-                gvDos = 7;
-                alert("El numero elegido fue " + gvDos);
-                break;
-        
-            case "8":
-                gvDos = 8;
-                alert("El numero elegido fue " + gvDos);
-                break;
-        
-            case "9":
-                gvDos = 9;
-                alert("El numero elegido fue " + gvDos);
-                break;
-        
-            default:
-                alert ("El numero seleccionado no se encuentra dentro de los parametros");
-                visitaDos = prompt("Goles de Polonia contra Mexico? Valores de 0 a 9");
-                break;
+            if(localCuatro>visitaCuatro){
+                alert("Ganador Polonia. Suma 3pts!.");
+                ptsPolonia =+ puntosPol(3);
+            } else if (localCuatro<visitaCuatro){
+                alert("Ganador Arabia Saudita. Suma 3pts!.");
+                ptsArabia =+ puntosAra(3);
+            } else if (localCuatro==visitaCuatro){
+                alert("Empate. Suma 1pt cada seleccion");
+                ptsPolonia =+ puntosPol(1);
+                ptsArabia =+ puntosAra(1);
+            } else{
+                alert("Los numeros ingresados no fueron correctos");
             }
+
+tablaPosiciones()
+
+//Primer Lugar
+
+    if ((ptsArabia > ptsArgentina) && (ptsArabia > ptsMexico) && (ptsArabia > ptsPolonia)){
+        alert("Primer Lugar Arabia Saudita con "+ptsArabia+" puntos en total");
+        primerLugar = "Arabia Saudita";
+    } else if ((ptsArgentina > ptsArabia) && (ptsArgentina > ptsMexico) && (ptsArgentina > ptsPolonia)){
+        alert("Primer lugar Argentina con "+ptsArgentina+" puntos en total");
+        primerLugar = "Argentina";
+    } else if ((ptsMexico > ptsArgentina) && (ptsMexico > ptsArabia) && (ptsMexico > ptsPolonia)){
+        alert("Primer Lugar Mexico con "+ptsMexico+" puntos en total");
+        primerLugar = "Mexico";
+    } else if ((ptsPolonia > ptsArgentina) && (ptsPolonia > ptsMexico) && (ptsPolonia > ptsArabia)){
+        alert("Primer Lugar Polonia con "+ptsPolonia+" puntos en total");
+        primerLugar = "Polonia";
+    } else {
+        alert("No pudimos calcular los puntos, Lo siento algo salio mal");
+    }
     
-        if (glDos < gvDos) {
-            ptsPolonia =+ 3;
-            alert ("Ganó Polonia!!");
+    //Segundo Lugar
+
+    let segundoLugar = prompt("Escriba solo en minusculas y sin acentos.\nQuien crees que deberia ser merecedor del segundo lugar?\n(0 para cancelar)");
+
+    /*while ((segundoLugar != "argentina") || (segundoLugar != "arabia") || (segundoLugar != "polonia") || (segundoLugar != "mexico") || (segundoLugar != "0")) {
+        alert ("Hubo un error al ingresar el segundo lugar, vuelva a intentarlo.");
+        segundoLugar = prompt("Escriba solo en minusculas y sin acentos.\nQuien crees que deberia ser merecedor del segundo lugar?\n(0 para cancelar)");
+    }*/
+        if (segundoLugar == "argentina"){
+            alert("Segundo lugar a pedido del publico es Argentina!!");
+            segundoLugar = "Argentina";
         }
-    
-        if (glDos === gvDos) {
-            ptsMexico =+ 1;
-            ptsPolonia =+ 1;
-            alert ("Empate!!");
+        else if ((segundoLugar == "arabia") || (segundoLugar == "arabia saudita")){
+            alert("Segundo Lugar a pedido del publico es Arabia saudita!!");
+            segundoLugar = "Arabia Saudita";
         }
-        
-        if (glDos > gvDos) {
-            ptsMexico =+ 3;
-            alert ("Ganó Mexico!!");
+        else if (segundoLugar == "polonia"){
+            alert("Segundo lugar a pedido del publico es Polonia!!");
+            segundoLugar = "Polonia";
+        }
+        else if ((segundoLugar == "mexico") || (segundoLugar == "méxico")){
+            alert("Segundo Lugar a pedido del publico es Mexico!!!");
+            segundoLugar = "Mexico";
+        }
+        else {
+            alert ("No se ha podido elegir un segundo lugar.")
         }
 
-}
-
-function position() {
-    var position = [ptsArabia, ptsArgentina, ptsMexico, ptsPolonia];
-    position.sort(function(a, b){return b - a});
-    alert (position);
-}
-
-logIn();
-start();
-position();
-
-
-        /*
-        tenes 
-        let primero
-        let segundo
-        let tercero
-        let cuarto
-
-        primero > a todos
-        segundo > a tercero y cuarto
-        tercero > cuarto
-        cuarto < a todos*/
-
-
+alert("Felicitaciones los ganadores son "+primerLugar+" en primer lugar y "+segundoLugar+" En segundo lugar");
